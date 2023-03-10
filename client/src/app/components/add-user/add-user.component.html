@@ -1,0 +1,85 @@
+<div class="container-xl">
+  <div class="table-responsive">
+    <div class="table-wrapper">
+      <div class="table-title">
+        <div class="row">
+          <div class="col-sm-6">
+            <h4><b>New User</b></h4>
+          </div>
+          <div class="col-sm-6">
+            <a href="#" routerLink="/Home" class="btn btn-success back"><i class='fas fa-arrow-circle-left'></i>
+              &nbsp;Back</a>
+          </div>
+        </div>
+      </div>
+      <form #userForm="ngForm">
+        <div class="table-content">
+
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="FirstName" class="p-t-b-10">First Name<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="FirstName" required maxlength="55"
+                [(ngModel)]="addUserForm.FirstName" name="FirstName" #FirstName="ngModel">
+              <div *ngIf="FirstName.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!FirstName?.errors?.['required']">
+                  First Name is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="LastName" class="p-t-b-10">Last Name<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="LastName" required maxlength="55"
+                [(ngModel)]="addUserForm.LastName" name="LastName" #LastName="ngModel">
+              <div *ngIf="LastName.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!LastName?.errors?.['required']">
+                  Last Name is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="UserName" class="p-t-b-10">User Name<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="UserName" required maxlength="15"
+                [(ngModel)]="addUserForm.UserName" name="UserName" #UserName="ngModel">
+              <div *ngIf="UserName.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!UserName?.errors?.['required']">
+                  User Name is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group p-10 row">
+            <div class="col-sm-3">
+              <label for="Password" class="p-t-b-10">Password<span class="requiredStar">*</span></label>
+            </div>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" id="Password" required maxlength="14"
+                [(ngModel)]="addUserForm.Password" name="Password" #Password="ngModel">
+              <div *ngIf="Password.errors && isSubmitted" class="alert alert-danger validationError">
+                <div [hidden]="!Password?.errors?.['required']">
+                  Password is required
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="table-footer">
+          <button class="btn btn-success" (click)="AddUser(userForm.form.valid)">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

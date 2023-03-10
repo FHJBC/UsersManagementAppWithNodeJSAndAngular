@@ -1,0 +1,9 @@
+client/.vscode/
+client/node_modules/
+
+server/node_modules
+server/src/config/auth.config.js
+server/src/config/database.config.js
+
+installation-server.txt
+installation-client.txt
